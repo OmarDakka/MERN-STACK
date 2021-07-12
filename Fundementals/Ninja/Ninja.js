@@ -20,4 +20,5 @@ class Ninja {
 }
 
 const Naruto = new Ninja("Naruto",50);
+Naruto.showStats();
 Naruto.drinkSake();
