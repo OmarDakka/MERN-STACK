@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 const Pokemon = (props) => {
     const [poke, setPoke] = useState([]);
 
-    const onClick = (e) => {
-        fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=964')
-        .then(res => {
-            return res.json();
-        })
-        .then(res =>{
-            setPoke(res.results);
-        })
-        .catch(err =>{
-            console.log(err);
-        })
-    }
+        const onClick = (e) => {
+            axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=964')
+            .then(res => {setPoke(res.data.results);
+            })
+            .catch(err => console.log(err));
+        };
 
     return (
         <div>
