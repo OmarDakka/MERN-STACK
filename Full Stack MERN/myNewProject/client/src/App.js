@@ -1,10 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import Main from './views/Main';
+import { Router } from '@reach/router';
+import Details from './views/Details';
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Router> 
+        <Main path="people/"/>
+        <Details path="people/:id"/>
+      </Router>
     </div>
   );
 }
