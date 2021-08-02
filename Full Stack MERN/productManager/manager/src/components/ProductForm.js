@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-export default () => {
+export default (props) => {
+    const {initialTitle, initialPrice, initialDescription, onSubmitProp } = props; 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
 
     const onSubmitHandler = e => {
         e.preventDefault();
-
-        axios.post('http://localhost:8000/api/products',{
-            title,
-            price,
-            description
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        onSubmitProp({title,price,description});
     }
 
     return (
